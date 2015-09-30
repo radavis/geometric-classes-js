@@ -1,5 +1,4 @@
 var Square = function Square(length, x, y) {
-  this.constructor;
   this.length = length;
   this.width = length;
   this.x = x || 0;
