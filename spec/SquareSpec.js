@@ -39,4 +39,48 @@ describe("Square", function() {
       expect(square.diameter()).toBeCloseTo(7.071);
     });
   });
+
+  describe(".perimeter()", function() {
+    it("returns the sum of the four sides", function() {
+      var square = new Square(5);
+      expect(square.perimeter()).toEqual(20);
+    });
+  });
+
+  describe(".area()", function() {
+    it("returns 25 when the side is 5", function() {
+      var square = new Square(5);
+      expect(square.area()).toEqual(25);
+    });
+
+    it("returns 100 when the side is 10", function() {
+      var square = new Square(10);
+      expect(square.area()).toEqual(100);
+    });
+  });
+
+  describe(".containsPoint()", function() {
+    it("returns true for a point within the square", function() {
+      var square = new Square(1);
+      expect(square.containsPoint(0, 0)).toBe(true);;
+    });
+
+    it("returns true for a point on the edge of a square", function() {
+      var square = new Square(1);
+      expect(square.containsPoint(0.5, 0.5)).toBe(true);;
+    });
+
+    it("returns false for points outside of the square", function() {
+      var square = new Square(1);
+      expect(square.containsPoint(4, 3)).toBe(false);
+      expect(square.containsPoint(1, 0)).toBe(false);
+      expect(square.containsPoint(0, -1)).toBe(false);
+      expect(square.containsPoint(-1, 0)).toBe(false);
+      expect(square.containsPoint(0, 1)).toBe(false);
+      expect(square.containsPoint(1, 1)).toBe(false);
+      expect(square.containsPoint(1, -1)).toBe(false);
+      expect(square.containsPoint(-1, -1)).toBe(false);
+      expect(square.containsPoint(-1, 1)).toBe(false);
+    });
+  });
 });
